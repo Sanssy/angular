@@ -8,7 +8,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 })
 export class IconEditComponent implements OnInit {
 
-  public myIcon = faEdit;
+  public edit = faEdit;
 
   constructor() { }
 

@@ -5,9 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconEditComponent } from './icon-edit/icon-edit.component';
 
 
-
 @NgModule({
-  declarations: [IconNavComponent, IconEditComponent],
+  declarations: [
+    IconNavComponent,
+    IconEditComponent
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,

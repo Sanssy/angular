@@ -8,7 +8,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 })
 export class IconNavComponent implements OnInit {
 
-  public myIcon = faBars;
+  public bars = faBars;
 
   constructor() { }
 
