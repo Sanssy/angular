@@ -10,7 +10,9 @@
     </div>
   </aside>
   <div class="page">
-    <div class="contents">CONTENU</div>
+    <div class="contents">
+      <ng-content select=".content"></ng-content>
+    </div>
   </div>
   <footer>
     <ng-content select="app-footer"></ng-content>

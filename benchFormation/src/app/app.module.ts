@@ -8,10 +8,14 @@ import { UiModule } from './ui/ui.module';
 import { TextsModule } from './texts/texts.module';
 import { IconsModule } from './icons/icons.module';
 import { CoreModule } from './core/core.module';
+import { OrdersComponent } from './views/orders/orders.component';
+import { PageListOrdersComponent } from './views/orders/pages/page-list-orders/page-list-orders.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrdersComponent,
+    PageListOrdersComponent
   ],
   imports: [
     BrowserModule,
