@@ -10,6 +10,11 @@ import { NavComponent } from './components/nav/nav.component';
   declarations: [HeaderComponent, FooterComponent, NavComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent,
+    NavComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

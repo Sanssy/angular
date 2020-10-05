@@ -1,11 +1,18 @@
-<header class="fixed-top">HEADER</header>
-<main>
+<header class="fixed-top">
+  <app-icon-nav (click)="toggle()"> </app-icon-nav>
+  <ng-content select="app-header"></ng-content>
+</header>
+<main [ngClass]="{ 'close-aside': !open }">
   <div class="shadow position-fixed"></div>
   <aside>
-    <div class="scroller">NAVIGATION</div>
+    <div class="scroller">
+      <ng-content select="app-nav"></ng-content>
+    </div>
   </aside>
   <div class="page">
     <div class="contents">CONTENU</div>
   </div>
-  <footer>FOOTER</footer>
+  <footer>
+    <ng-content select="app-footer"></ng-content>
+  </footer>
 </main>
