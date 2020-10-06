@@ -11,7 +11,7 @@ import { TemplatesModule } from 'src/app/templates/templates.module';
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    TemplatesModule
+    TemplatesModule,
   ]
 })
 export class OrdersModule { }

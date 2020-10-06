@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableLightComponent } from './components/table-light/table-light.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -8,6 +9,7 @@ import { TableLightComponent } from './components/table-light/table-light.compon
   declarations: [TableLightComponent],
   imports: [
     CommonModule,
+    SharedModule
   ],
   exports: [
     TableLightComponent

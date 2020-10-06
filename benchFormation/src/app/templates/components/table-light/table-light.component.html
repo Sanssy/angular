@@ -1,6 +1,3 @@
-<!-- <p>{{ headers | json }}</p>
-<p>{{ collection | json }}</p> -->
-
 <table class="table">
   <thead>
     <tr>
@@ -15,21 +12,11 @@
       <td>{{ c.typePresta }}</td>
       <td>{{ c.client }}</td>
       <td>{{ c.nbJours }}</td>
-      <td>{{ c.tjmHT }}</td>
-      <td>{{ c.totalHT() }}</td>
-      <td>{{ c.totalTTC() }}</td>
+      <td>{{ c.tjmHT | currency: "EUR" }}</td>
+      <td>{{ c | total: "HT" | currency: "EUR" }}</td>
+      <td>{{ c | total: "TTC" | currency: "EUR" }}</td>
+      <td>{{ c.date | date: "dd-MM-yyyy" }}</td>
       <td>{{ c.state }}</td>
-    </tr>
-  </tbody>
-  <tbody *ngIf="clients">
-    <tr *ngFor="let cl of clients">
-      <td>{{ cl.id }}</td>
-      <td>{{ cl.name }}</td>
-      <td>{{ cl.ca }}</td>
-      <td>{{ cl.comment }}</td>
-      <td>{{ cl.tva }}</td>
-      <td>{{ cl.totalTTC() }}</td>
-      <td>{{ cl.state }}</td>
     </tr>
   </tbody>
 </table>

@@ -19,7 +19,7 @@ export class PageListOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.section = 'orders';
-    this.headers = ['Id', 'Type','Client', 'Nb jours', 'TJM HT', 'Total HT', 'Total TTC','Etat'];
+    this.headers = ['Id', 'Type','Client', 'Nb jours', 'TJM HT', 'Total HT', 'Total TTC', 'Date','Etat'];
     this.orderService.collection.subscribe(orders => {
       this.collectionOrders = orders;
       console.log(this.collectionOrders);
