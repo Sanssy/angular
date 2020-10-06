@@ -1,7 +1,7 @@
 <!-- <p>{{ headers | json }}</p>
 <p>{{ collection | json }}</p> -->
 
-<table class="table" *ngIf="collection">
+<table class="table">
   <thead>
     <tr>
       <th *ngFor="let h of headers">
@@ -9,7 +9,7 @@
       </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="collection">
     <tr *ngFor="let c of collection">
       <td>{{ c.id }}</td>
       <td>{{ c.typePresta }}</td>
@@ -21,17 +21,7 @@
       <td>{{ c.state }}</td>
     </tr>
   </tbody>
-</table>
-
-<table class="table" *ngIf="clients">
-  <thead>
-    <tr>
-      <th *ngFor="let h of headers">
-        {{ h }}
-      </th>
-    </tr>
-  </thead>
-  <tbody>
+  <tbody *ngIf="clients">
     <tr *ngFor="let cl of clients">
       <td>{{ cl.id }}</td>
       <td>{{ cl.name }}</td>

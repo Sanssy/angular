@@ -14,5 +14,4 @@ export class PageHomeComponent implements OnInit {
       localStorage.userConnected = false;
     }
   }
-
 }

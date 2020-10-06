@@ -12,19 +12,11 @@ export class TableLightComponent implements OnInit {
   @Input() public collection: Order[];
   @Input() public headers: string[];
   @Input() public clients: Client[];
-  // @Input() public section: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  // onContent(section: string): boolean {
-  //   if (section === 'orders') {
-  //     return true;
-  //   } else if (section === 'clients') {
-  //     return true;
-  //   }
-  // }
 
 }
