@@ -15,7 +15,7 @@ export class PageClientListComponent implements OnInit {
   constructor(private clientsService : ClientsService) { }
 
   ngOnInit(): void {
-    this.clientsService.clients.subscribe(clientsList => {
+    this.clientsService.fetchClients.subscribe(clientsList => {
       this.clientsCollection = clientsList;
       console.log(this.clientsCollection);
     })
