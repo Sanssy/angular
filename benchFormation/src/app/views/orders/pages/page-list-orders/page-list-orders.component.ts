@@ -9,13 +9,17 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class PageListOrdersComponent implements OnInit {
 
+  public headers: string[];
   public collectionOrders: Order[];
+  public section: string;
 
   constructor(
     private orderService: OrdersService
   ) { }
 
   ngOnInit(): void {
+    this.section = 'orders';
+    this.headers = ['Id', 'Type','Client', 'Nb jours', 'TJM HT', 'Total HT', 'Total TTC','Etat'];
     this.orderService.collection.subscribe(orders => {
       this.collectionOrders = orders;
       console.log(this.collectionOrders);

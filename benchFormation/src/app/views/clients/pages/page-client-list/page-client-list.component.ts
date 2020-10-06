@@ -10,11 +10,15 @@ import { ClientsService } from '../../services/clients.service';
 })
 export class PageClientListComponent implements OnInit {
 
+  public headers: string[];
   public clientsCollection: Client[];
+  public section: string;
 
   constructor(private clientsService : ClientsService) { }
 
   ngOnInit(): void {
+    this.section = 'clients';
+    this.headers = ['Id', 'Name', 'CA', 'Comment', 'TVA', 'Total TTC','State']
     this.clientsService.fetchClients.subscribe(clientsList => {
       this.clientsCollection = clientsList;
       console.log(this.clientsCollection);

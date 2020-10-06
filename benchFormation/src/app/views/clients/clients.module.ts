@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ClientsRoutingModule } from './clients-routing.module';
 import { PageClientListComponent } from './pages/page-client-list/page-client-list.component';
+import { TemplatesModule } from 'src/app/templates/templates.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PageClientListComponent } from './pages/page-client-list/page-client-li
   ],
   imports: [
     CommonModule,
-    ClientsRoutingModule
+    ClientsRoutingModule,
+    TemplatesModule
   ]
 })
 export class ClientsModule { }

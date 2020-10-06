@@ -10,7 +10,9 @@ export class PageHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    localStorage.userConnected = false;
+    if (!localStorage.userConnected){
+      localStorage.userConnected = false;
+    }
   }
 
 }
