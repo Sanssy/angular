@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/shared/models/order.model';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageListOrdersComponent implements OnInit {
 
-  constructor() { }
+  public collection: Order[];
+
+  constructor(
+    
+  ) { }
 
   ngOnInit(): void {
   }

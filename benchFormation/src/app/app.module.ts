@@ -8,14 +8,11 @@ import { UiModule } from './ui/ui.module';
 import { TextsModule } from './texts/texts.module';
 import { IconsModule } from './icons/icons.module';
 import { CoreModule } from './core/core.module';
-import { PageListOrdersComponent } from './views/orders/pages/page-list-orders/page-list-orders.component';
-import { PageClientListComponent } from './views/clients/pages/page-client-list/page-client-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageListOrdersComponent,
-    PageClientListComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +21,8 @@ import { PageClientListComponent } from './views/clients/pages/page-client-list/
     UiModule,
     TextsModule,
     IconsModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
