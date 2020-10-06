@@ -15,7 +15,7 @@ export class OrdersService {
   constructor(
     private http: HttpClient
   ) {
-    this.collection =this.http.get<Order[]>(`${this.urlApi}/orders`)
+    this.collection =this.http.get<Order[]>(`${this.urlApi}orders`)
    }
 
 
