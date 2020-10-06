@@ -4,13 +4,15 @@ import { IconNavComponent } from './icon-nav/icon-nav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconEditComponent } from './icon-edit/icon-edit.component';
 import { IconAccessibleComponent } from './icon-accessible/icon-accessible.component';
+import { IconViewComponent } from './icon-view/icon-view.component';
 
 
 @NgModule({
   declarations: [
     IconNavComponent,
     IconEditComponent,
-    IconAccessibleComponent
+    IconAccessibleComponent,
+    IconViewComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { IconAccessibleComponent } from './icon-accessible/icon-accessible.compo
   exports: [
     IconNavComponent,
     IconEditComponent,
-    IconAccessibleComponent
+    IconAccessibleComponent,
+    IconViewComponent
   ]
 })
 export class IconsModule { }

@@ -13,7 +13,6 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.open = true;
-    localStorage.userConnected = false;
   }
 
   public toggle(): void {
