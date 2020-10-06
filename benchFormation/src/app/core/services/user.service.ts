@@ -30,4 +30,10 @@ export class UserService {
   public set fetchUsers(users: Observable<User[]>){
     this.pUsers = users;
   }
+
+  // User : get username & password
+  public getByUsernameAndPassword(username: string, password: string): Observable<User> {
+    return this.http.get<User>(`${this.urlApi}users?username=${username}&passeword=${password}`)
+  }
+
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { StateClient } from 'src/app/shared/enums/state-client.enum';
 import { Client } from 'src/app/shared/models/client.model';
 import { environment } from 'src/environments/environment';
 
@@ -27,4 +28,14 @@ export class ClientsService {
    public set fetchClients(clients: Observable<Client[]>) {
      this.pClients = clients;
    }
+
+   // Client : get By Id + get By State
+   public getClient(client_id: number): Observable<Client> {
+     return this.http.get<Client>(`${this.urlApi}clients/${client_id}`)
+   }
+
+   public getClientByState(client_state: StateClient): Observable<Client> {
+    return this.http.get<Client>(`${this.urlApi}clients?state=${client_state}`)
+  }
+
 }
