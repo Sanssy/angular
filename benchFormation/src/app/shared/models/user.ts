@@ -1,4 +1,4 @@
-import { UserI } from './user-i';
+import { UserI } from '../interfaces/user-i';
 
 export class User implements UserI{
   username: string;
