@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ControlService } from 'src/app/core/services/control.service';
+import { User } from 'src/app/core/services/users/user';
 
 @Component({
   selector: 'app-page-signin',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageSigninComponent implements OnInit {
 
-  constructor() { }
+  users: User[];
+
+  constructor(private userservice: ControlService) { }
 
   ngOnInit(): void {
+    this.userservice.fetchUsers.subscribe(users => {
+      console.log(users);
+    })
+
   }
 
   onSignIn(): void {
