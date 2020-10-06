@@ -5,4 +5,6 @@ export interface ClientI {
   name: string,
   ca: number,
   comment: string
+
+  totalTTC(): number;
 }

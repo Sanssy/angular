@@ -9,6 +9,10 @@ export class Client implements ClientI {
   ca: number;
   comment: string;
 
+  totalTTC(): number {
+    return this.ca * (1 + this.tva / 100);
+  }
+
   constructor(obj?: Partial<Client>){
     if (obj){
       Object.assign(this, obj);

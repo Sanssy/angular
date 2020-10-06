@@ -18,8 +18,6 @@ export class PageClientListComponent implements OnInit {
     this.clientsService.clients.subscribe(clientsList => {
       this.clientsCollection = clientsList;
       console.log(this.clientsCollection);
-
     })
   }
-
 }
