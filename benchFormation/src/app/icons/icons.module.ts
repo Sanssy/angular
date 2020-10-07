@@ -6,6 +6,7 @@ import { IconEditComponent } from './icon-edit/icon-edit.component';
 import { IconAccessibleComponent } from './icon-accessible/icon-accessible.component';
 import { IconViewComponent } from './icon-view/icon-view.component';
 import { IconSignoutComponent } from './icon-signout/icon-signout.component';
+import { IconFilterComponent } from './icon-filter/icon-filter.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { IconSignoutComponent } from './icon-signout/icon-signout.component';
     IconEditComponent,
     IconAccessibleComponent,
     IconViewComponent,
-    IconSignoutComponent
+    IconSignoutComponent,
+    IconFilterComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { IconSignoutComponent } from './icon-signout/icon-signout.component';
     IconEditComponent,
     IconAccessibleComponent,
     IconViewComponent,
-    IconSignoutComponent
+    IconSignoutComponent,
+    IconFilterComponent
   ]
 })
 export class IconsModule { }

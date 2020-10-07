@@ -61,16 +61,36 @@
       "ca": 120000,
       "comment": "Un comment pour client modis",
       "id": 2
+    },
+    {
+      "state": "Active",
+      "tva": 20,
+      "name": "Mobilos",
+      "ca": 5000,
+      "comment": "",
+      "id": 5
+    },
+    {
+      "state": "Inactive",
+      "tva": 20,
+      "name": "Tete",
+      "ca": 75000,
+      "comment": "new !!",
+      "id": 6
     }
   ],
   "users": [
     {
+      "role": "USER",
+      "id": 1,
       "username": "user",
       "password": "user"
     },
     {
+      "id": 2,
       "username": "admin",
-      "password": "admin"
+      "password": "admin",
+      "role": "ADMIN"
     }
   ]
 }

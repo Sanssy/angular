@@ -1,4 +1,4 @@
-<app-table-light *ngIf="clientsCollection" [headers]="headers">
+<app-table-dark *ngIf="clientsCollection" [headers]="headers">
   <tr *ngFor="let c of clientsCollection">
     <td>{{ c.id }}</td>
     <td>{{ c.name }}</td>
@@ -14,4 +14,13 @@
       </select>
     </td>
   </tr>
-</app-table-light>
+</app-table-dark>
+
+<div>
+  <app-icon-filter></app-icon-filter>
+  <app-btn
+    [label]="btnAction.label"
+    [action]="btnAction.action"
+    (clicked)="filter()"
+  ></app-btn>
+</div>

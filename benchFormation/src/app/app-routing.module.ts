@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found/pag
 const routes: Routes = [
   { path: 'home', component: PageHomeComponent },
   { path: 'login', loadChildren: () => import('./views/login/login.module').then(m => m.LoginModule) },
+  { path: 'users', canActivate: [ControlService], loadChildren: () => import('./views/users/users.module').then(u => u.UsersModule) },
   { path: 'orders', canActivate: [ControlService], loadChildren: () => import('./views/orders/orders.module').then(m => m.OrdersModule) },
   { path: 'clients', canActivate: [ControlService], loadChildren: () => import('./views/clients/clients.module').then(m => m.ClientsModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -73,8 +73,6 @@ export class OrdersService {
     }
 
     public changeOrderState(id: number, state: StateOrder): Observable<Order> {
-      // const order = this.getById(id);
-      // return this.http.put<Order>(`${this.urlApi}orders/${id}`, {...order, state});
       return this.http.put<Order>(`${this.urlApi}orders/${id}`, state);
     }
 }

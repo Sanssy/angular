@@ -1,0 +1,16 @@
+<app-table-striped *ngIf="users" [headers]="headers">
+  <tr *ngFor="let u of users">
+    <td>{{ u.id }}</td>
+    <td>{{ u.username }}</td>
+    <td>
+      <select (change)="changeRole(u, $event)">
+        <option *ngFor="let s of roles" [value]="s" [selected]="s === u.role">
+          {{ s }}
+        </option>
+      </select>
+    </td>
+  </tr>
+</app-table-striped>
+
+<app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
+<app-btn [label]="btnHref.label" [href]="btnHref.href"></app-btn>
