@@ -3,7 +3,7 @@
     <td>{{ c.id }}</td>
     <td>{{ c.typePresta }}</td>
     <td>{{ c.client }}</td>
-    <td>{{ c.nbJours | days: c.nbJours }}</td>
+    <td [appDaysCount]="c.nbJours">{{ c.nbJours | days: c.nbJours }}</td>
     <td>{{ c.tjmHT | currency: "EUR" }}</td>
     <td>{{ c | total: "HT" | currency: "EUR" }}</td>
     <td>{{ c | total: "TTC" | currency: "EUR" }}</td>
