@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ControlService } from 'src/app/core/services/control.service';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/shared/models/user';
 
@@ -12,7 +12,7 @@ export class PageSigninComponent implements OnInit {
 
   users: User[];
 
-  constructor(private userservice: UserService) { }
+  constructor(private router: Router, private userservice: UserService) { }
 
   ngOnInit(): void {
     this.userservice.fetchUsers.subscribe(users => {
@@ -23,6 +23,7 @@ export class PageSigninComponent implements OnInit {
 
   onSignIn(): void {
     localStorage.userConnected = true;
+    this.router.navigate(['/home']);
   }
 
   onSignOut(): void {

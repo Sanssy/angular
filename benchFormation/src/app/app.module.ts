@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     TextsModule,
     IconsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {

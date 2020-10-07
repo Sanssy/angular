@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconEditComponent } from './icon-edit/icon-edit.component';
 import { IconAccessibleComponent } from './icon-accessible/icon-accessible.component';
 import { IconViewComponent } from './icon-view/icon-view.component';
+import { IconSignoutComponent } from './icon-signout/icon-signout.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { IconViewComponent } from './icon-view/icon-view.component';
     IconNavComponent,
     IconEditComponent,
     IconAccessibleComponent,
-    IconViewComponent
+    IconViewComponent,
+    IconSignoutComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { IconViewComponent } from './icon-view/icon-view.component';
     IconNavComponent,
     IconEditComponent,
     IconAccessibleComponent,
-    IconViewComponent
+    IconViewComponent,
+    IconSignoutComponent
   ]
 })
 export class IconsModule { }
