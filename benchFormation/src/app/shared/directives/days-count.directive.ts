@@ -15,7 +15,6 @@ export class DaysCountDirective implements OnChanges{
   }
 
   private formatClass(days: number): string {
-    return days >= 3 ? 'greater' : 'lower';
+    return days >= 3 ? 'days' : 'day';
   }
-
 }
