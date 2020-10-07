@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { StateClient } from 'src/app/shared/enums/state-client.enum';
+import { ClientI } from 'src/app/shared/interfaces/client-i';
 import { Client } from 'src/app/shared/models/client.model';
 import { ClientsService } from '../../services/clients.service';
 
@@ -12,16 +14,23 @@ export class PageClientListComponent implements OnInit {
 
   public headers: string[];
   public clientsCollection: Client[];
-  public section: string;
+  public states = Object.values(StateClient);
 
-  constructor(private clientsService : ClientsService) { }
+  constructor(private clientService : ClientsService) { }
 
   ngOnInit(): void {
-    this.section = 'clients';
     this.headers = ['Id', 'Name', 'CA', 'Comment', 'TVA', 'Total TTC','State']
-    this.clientsService.fetchClients.subscribe(clientsList => {
+    this.clientService.fetchClients.subscribe(clientsList => {
       this.clientsCollection = clientsList;
-      console.log(this.clientsCollection);
+    })
+  }
+
+  changeState(client: Client, event): void {
+    this.clientService.changeState(client, event.target.value).subscribe(data => {
+      console.log('Before', client.state);
+      client.state = data.state;
+      console.log('After', client.state);
+
     })
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { Order } from 'src/app/shared/models/order.model';
 import { OrdersService } from '../../services/orders.service';
 
@@ -11,19 +12,34 @@ export class PageListOrdersComponent implements OnInit {
 
   public headers: string[];
   public collectionOrders: Order[];
-  public section: string;
+  public states = Object.values(StateOrder);
 
   constructor(
     private orderService: OrdersService
   ) { }
 
   ngOnInit(): void {
-    this.section = 'orders';
     this.headers = ['Id', 'Type','Client', 'Nb jours', 'TJM HT', 'Total HT', 'Total TTC', 'Date','Etat'];
     this.orderService.collection.subscribe(orders => {
       this.collectionOrders = orders;
-      console.log(this.collectionOrders);
     });
+    // this.orderService.getFilterByState(StateOrder.OPTION).subscribe(orders => this.collectionOrders = orders);
   }
+
+  public changeState(order: Order, event): void {
+    // this.orderService.changeState(order, event.target.value).subscribe(data => {
+    //   console.log('Before', order.state);
+    //   order.state = data.state;
+    //   console.log('After', order.state);
+    // })
+
+    this.orderService.changeOrderState(order.id, event.target.value).subscribe(order => {
+      console.log('Before', order.state);
+
+      console.log('After', order.state);
+    })
+  }
+
+  // public
 
 }

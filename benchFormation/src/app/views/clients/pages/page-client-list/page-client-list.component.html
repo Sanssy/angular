@@ -1,0 +1,17 @@
+<app-table-light *ngIf="clientsCollection" [headers]="headers">
+  <tr *ngFor="let c of clientsCollection">
+    <td>{{ c.id }}</td>
+    <td>{{ c.name }}</td>
+    <td>{{ c.ca }}</td>
+    <td>{{ c.comment }}</td>
+    <td>{{ c.tva }}</td>
+    <td>{{ c.totalTTC() }}</td>
+    <td>
+      <select (change)="changeState(c, $event)">
+        <option *ngFor="let s of states" [value]="s" [selected]="s === c.state">
+          {{ s }}
+        </option>
+      </select>
+    </td>
+  </tr>
+</app-table-light>

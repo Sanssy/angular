@@ -6,7 +6,7 @@ export class Order implements OrderI {
   tjmHT = 500;
   nbJours = 1;
   tva = 20;
-  state: StateOrder.OPTION;
+  state = StateOrder.OPTION;
   typePresta: string;
   client: string;
   comment: string;

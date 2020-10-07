@@ -3,7 +3,7 @@ import { ClientI } from '../interfaces/client-i';
 
 export class Client implements ClientI {
   id: number;
-  state: StateClient.ACTIVE;
+  state = StateClient.ACTIVE;
   tva: 20;
   name: string;
   ca: number;

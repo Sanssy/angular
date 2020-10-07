@@ -38,4 +38,14 @@ export class ClientsService {
     return this.http.get<Client>(`${this.urlApi}clients?state=${client_state}`)
   }
 
+  public update(client: Client) {
+    return this.http.put<Client>(`${this.urlApi}clients/${client.id}`, client);
+  }
+
+  public changeState(client: Client, state: StateClient): Observable<Client> {
+    const obj = new Client({...client});
+    obj.state = state;
+    return this.update(obj);
+  }
+
 }

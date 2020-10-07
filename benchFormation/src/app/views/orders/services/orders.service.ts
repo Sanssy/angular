@@ -49,4 +49,31 @@ export class OrdersService {
     public getByStateAndTypePresta(state_order: StateOrder, typePresta?: string): Observable<Order[]> {
       return this.http.get<Order[]>(`${this.urlApi}orders?state=${state_order}&typePresta=${typePresta}`)
     }
+
+    // Get with filter by state
+    public getFilterByState(state: StateOrder): Observable<Order[]> {
+      return this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
+        map(datas => datas
+          .filter(data => data.state == state)
+            .map ( filteredData => new Order(filteredData))
+          )
+      )
+    }
+
+    // update
+    public update(order: Order): Observable<Order> {
+      return this.http.put<Order>(`${this.urlApi}orders/${order.id}`, order);
+    }
+
+    // update changeState
+    public changeState(order: Order, state: StateOrder): Observable<Order> {
+      const obj = new Order({...order});
+      obj.state = state;
+      return this.update(obj)
+    }
+
+    public changeOrderState(id: number, state: StateOrder): Observable<Order> {
+      const order = this.getById(id);
+      return this.http.put<Order>(`${this.urlApi}orders/${id}`, {...order, state});
+    }
 }
