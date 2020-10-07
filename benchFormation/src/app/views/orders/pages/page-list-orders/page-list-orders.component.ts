@@ -27,19 +27,11 @@ export class PageListOrdersComponent implements OnInit {
   }
 
   public changeState(order: Order, event): void {
-    // this.orderService.changeState(order, event.target.value).subscribe(data => {
-    //   console.log('Before', order.state);
-    //   order.state = data.state;
-    //   console.log('After', order.state);
-    // })
-
-    this.orderService.changeOrderState(order.id, event.target.value).subscribe(order => {
+    this.orderService.changeState(order, event.target.value).subscribe(data => {
       console.log('Before', order.state);
-
+      order.state = data.state;
       console.log('After', order.state);
     })
   }
-
-  // public
 
 }
