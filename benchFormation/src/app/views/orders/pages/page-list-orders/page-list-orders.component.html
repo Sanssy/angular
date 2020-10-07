@@ -8,6 +8,6 @@
     <td>{{ c | total: "HT" | currency: "EUR" }}</td>
     <td>{{ c | total: "TTC" | currency: "EUR" }}</td>
     <td>{{ c.date | date: "dd-MM-yyyy" }}</td>
-    <td>{{ c.state }}</td>
+    <td [appColorState]="c.state">{{ c.state }}</td>
   </tr>
 </app-table-light>
