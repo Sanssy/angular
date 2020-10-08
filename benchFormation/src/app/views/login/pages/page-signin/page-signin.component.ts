@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
+import { StateUser } from 'src/app/shared/enums/state-user.enum';
+import { BtnI } from 'src/app/shared/interfaces/btn-i';
 import { User } from 'src/app/shared/models/user';
 
 @Component({
@@ -10,24 +13,54 @@ import { User } from 'src/app/shared/models/user';
 })
 export class PageSigninComponent implements OnInit {
 
+  public btnSignInUser: BtnI;
+  public btnSignInAdmin: BtnI;
+  public btnSignOut: BtnI;
+  public user: Observable<User>;
+  public usr: User;
+  public admin: User;
   users: User[];
 
   constructor(private router: Router, private userservice: UserService) { }
 
   ngOnInit(): void {
+
     this.userservice.fetchUsers.subscribe(users => {
-      console.log(users);
+      this.admin = users.find(u => u.role === StateUser.ADMIN);
+      this.usr = users.find(u => u.role === StateUser.USER);
     })
 
+    this.initButtons();
   }
 
-  onSignIn(): void {
-    localStorage.userConnected = true;
-    this.router.navigate(['/home']);
+  // onSignIn(): void {
+  //   localStorage.userConnected = true;
+  //   this.router.navigate(['/home']);
+  // }
+
+  // onSignOut(): void {
+  //   localStorage.userConnected = false;
+  // }
+
+  public initButtons(): void {
+    this.btnSignInUser = { label: 'User SignIn', action: true };
+    this.btnSignInAdmin = { label: 'Admin SignIn', action: true };
+    this.btnSignOut = { label: 'SignOut', action: true };
   }
 
-  onSignOut(): void {
-    localStorage.userConnected = false;
+  signIn(username: string, password: string){
+    this.userservice.getByUsernameAndPassword(username, password).subscribe(obj => {
+      console.log(obj[0].username);
+      localStorage.username = obj[0].username;
+      localStorage.username = obj[0].role;
+      localStorage.userConnected = true;
+      this.router.navigate(['/home']);
+    });
   }
 
+  signOut() {
+    if (localStorage.userConnected){
+      localStorage.userConnected = false;
+    }
+  }
 }

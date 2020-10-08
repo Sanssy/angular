@@ -20,9 +20,10 @@ export class PageListUsersComponent implements OnInit {
   constructor(private userService: UserService ) { }
 
   ngOnInit(): void {
+
     this.headers = ['Id', 'Username', 'Role'];
     this.initButtons();
-    this.userService.fetchUsers.subscribe(userList => this.users = userList)
+    // this.userService.fetchUsers.subscribe(userList => this.users = userList)
   }
 
   public initButtons() {
@@ -32,6 +33,10 @@ export class PageListUsersComponent implements OnInit {
 
   public changeRole(user: User, event): void {
     this.userService.changeRole(user, event.target.value).subscribe(data => user.role = data.role)
+  }
+
+  public fetchUsers(user: User): void {
+    this.userService.getUsersByRole(user).subscribe(u => console.log(u));
   }
 
 }

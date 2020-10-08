@@ -1,5 +1,24 @@
-<p>page-signin works!</p>
-<div class="btn-group">
+<app-btn
+  [label]="btnSignInUser.label"
+  [action]="btnSignInUser.action"
+  (clicked)="signIn(usr.username, usr.password)"
+>
+</app-btn>
+
+<app-btn
+  [label]="btnSignInAdmin.label"
+  [action]="btnSignInAdmin.action"
+  (clicked)="signIn(admin.username, admin.password)"
+></app-btn>
+
+<app-btn
+  [label]="btnSignOut.label"
+  [action]="btnSignOut.action"
+  (clicked)="signOut()"
+></app-btn>
+
+<!-- <p>page-signin works!</p> -->
+<!-- <div class="btn-group">
   <button class="btn btn-info" (click)="onSignIn()">Sign In</button>
   <button class="btn btn-danger" (click)="onSignOut()">Sign Out</button>
-</div>
+</div> -->
