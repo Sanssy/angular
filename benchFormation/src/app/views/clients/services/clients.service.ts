@@ -49,7 +49,7 @@ export class ClientsService {
   }
 
   public getUserWithCaGreatherThan(amount: number): Observable<Client[]> {
-    return this.fetchClients = this.http.get<Client[]>(`${this.urlApi}clients`).pipe(
+    return this.http.get<Client[]>(`${this.urlApi}clients`).pipe(
       map(clientsList => clientsList
         .filter( cl => cl.ca < amount)
         .map(clientToMap => new Client(clientToMap)))

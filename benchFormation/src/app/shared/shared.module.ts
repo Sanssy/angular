@@ -6,20 +6,22 @@ import { ColorStateDirective } from './directives/color-state.directive';
 import { DaysCountDirective } from './directives/days-count.directive';
 import { BtnComponent } from './components/btn/btn.component';
 import { RouterModule } from '@angular/router';
+import { IconsModule } from '../icons/icons.module';
 
 
 @NgModule({
   declarations: [TotalPipe, DaysPipe, ColorStateDirective, DaysCountDirective, BtnComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    IconsModule,
   ],
   exports: [
     TotalPipe,
     DaysPipe,
     ColorStateDirective,
     DaysCountDirective,
-    BtnComponent
+    BtnComponent,
   ]
 })
 export class SharedModule { }

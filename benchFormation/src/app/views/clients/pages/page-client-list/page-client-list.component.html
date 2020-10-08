@@ -16,11 +16,8 @@
   </tr>
 </app-table-dark>
 
-<div>
-  <app-icon-filter></app-icon-filter>
-  <app-btn
-    [label]="btnAction.label"
-    [action]="btnAction.action"
-    (clicked)="filter()"
-  ></app-btn>
-</div>
+<app-btn
+  [label]="btnIcon.label"
+  [icon]="btnIcon.icon"
+  (clicked)="filter()"
+></app-btn>

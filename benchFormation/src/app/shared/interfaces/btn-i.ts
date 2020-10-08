@@ -3,4 +3,5 @@ export interface BtnI {
   route?: string;
   href?: string;
   action?: boolean;
+  icon?: boolean;
 }
