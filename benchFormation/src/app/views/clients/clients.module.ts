@@ -6,11 +6,16 @@ import { PageClientListComponent } from './pages/page-client-list/page-client-li
 import { TemplatesModule } from 'src/app/templates/templates.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { IconsModule } from 'src/app/icons/icons.module';
+import { FormAddClientComponent } from './components/form-add-client/form-add-client.component';
+import { PageAddClientComponent } from './pages/page-add-client/page-add-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    PageClientListComponent
+    PageClientListComponent,
+    FormAddClientComponent,
+    PageAddClientComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +23,7 @@ import { IconsModule } from 'src/app/icons/icons.module';
     TemplatesModule,
     SharedModule,
     IconsModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientsModule { }

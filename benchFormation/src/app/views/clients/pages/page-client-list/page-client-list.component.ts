@@ -16,6 +16,7 @@ export class PageClientListComponent implements OnInit {
   public clientsCollectionObservable: Observable<Client[]>;
   public states = Object.values(StateClient);
   public btnIcon: BtnI;
+  public btnRoute: BtnI;
   public amountValue = 100000;
   public filtering: boolean;
   public title: string ;
@@ -37,6 +38,7 @@ export class PageClientListComponent implements OnInit {
   }
 
   public initButtons(): void {
+    this.btnRoute = { label: 'Add a client', route: 'add' };
     this.btnIcon = { label: 'Filter', icon: true};
   }
 

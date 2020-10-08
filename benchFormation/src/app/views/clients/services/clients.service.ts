@@ -55,4 +55,8 @@ export class ClientsService {
         .map(clientToMap => new Client(clientToMap)))
     )
   }
+
+  public add(client: Client): Observable<Client> {
+    return this.http.post<Client>(`${this.urlApi}clients`, client)
+  }
 }

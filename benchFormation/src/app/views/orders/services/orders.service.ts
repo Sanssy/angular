@@ -75,4 +75,9 @@ export class OrdersService {
     public changeOrderState(id: number, state: StateOrder): Observable<Order> {
       return this.http.put<Order>(`${this.urlApi}orders/${id}`, state);
     }
+
+    // Add order
+    public add(order: Order): Observable<Order> {
+      return this.http.post<Order>(`${this.urlApi}orders`, order)
+    }
 }

@@ -4,7 +4,7 @@ import { ClientI } from '../interfaces/client-i';
 export class Client implements ClientI {
   id: number;
   state = StateClient.ACTIVE;
-  tva: 20;
+  tva = 20;
   name: string;
   ca: number;
   comment: string;
