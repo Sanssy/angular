@@ -13,7 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     OrdersRoutingModule,
     TemplatesModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class OrdersModule { }

@@ -17,7 +17,7 @@ import { IconsModule } from 'src/app/icons/icons.module';
     ClientsRoutingModule,
     TemplatesModule,
     SharedModule,
-    IconsModule
+    IconsModule,
   ]
 })
 export class ClientsModule { }

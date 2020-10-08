@@ -1,26 +1,32 @@
-<app-table-dark
-  *ngIf="clientsCollectionObservable | async as clients"
-  [headers]="headers"
->
-  <tr *ngFor="let c of clients">
-    <td>{{ c.id }}</td>
-    <td>{{ c.name }}</td>
-    <td>{{ c.ca }}</td>
-    <td>{{ c.comment }}</td>
-    <td>{{ c.tva }}</td>
-    <td>{{ c.totalTTC() }}</td>
-    <td>
-      <select (change)="changeState(c, $event)">
-        <option *ngFor="let s of states" [value]="s" [selected]="s === c.state">
-          {{ s }}
-        </option>
-      </select>
-    </td>
-  </tr>
-</app-table-dark>
+<app-titles-c [title]="title" [subtitle]="subtitle">
+  <app-table-dark
+    *ngIf="clientsCollectionObservable | async as clients"
+    [headers]="headers"
+  >
+    <tr *ngFor="let c of clients">
+      <td>{{ c.id }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.ca }}</td>
+      <td>{{ c.comment }}</td>
+      <td>{{ c.tva }}</td>
+      <td>{{ c.totalTTC() }}</td>
+      <td>
+        <select (change)="changeState(c, $event)">
+          <option
+            *ngFor="let s of states"
+            [value]="s"
+            [selected]="s === c.state"
+          >
+            {{ s }}
+          </option>
+        </select>
+      </td>
+    </tr>
+  </app-table-dark>
 
-<app-btn
-  [label]="btnIcon.label"
-  [icon]="btnIcon.icon"
-  (clicked)="filter()"
-></app-btn>
+  <app-btn
+    [label]="btnIcon.label"
+    [icon]="btnIcon.icon"
+    (clicked)="filter()"
+  ></app-btn>
+</app-titles-c>

@@ -35,3 +35,13 @@ button {
     }
   }
 }
+
+:host-context(app-titles-c) {
+  a,
+  button {
+    background: $color3;
+    &:hover {
+      background: darken($color3, 10);
+    }
+  }
+}

@@ -18,10 +18,14 @@ export class PageClientListComponent implements OnInit {
   public btnIcon: BtnI;
   public amountValue = 100000;
   public filtering: boolean;
+  public title: string ;
+  public subtitle: string ;
 
   constructor(private clientService : ClientsService) { }
 
   ngOnInit(): void {
+    this.title = 'Clients';
+    this.subtitle = 'List of clients';
     this.filtering = false;
     this.initButtons();
     this.headers = ['Id', 'Name', 'CA', 'Comment', 'TVA', 'Total TTC','State'];
