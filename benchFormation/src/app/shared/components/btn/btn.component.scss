@@ -16,3 +16,22 @@ button {
     background: darken($color3, 10);
   }
 }
+
+:host-context(app-titles-a) {
+  a,
+  button {
+    background: $color2;
+    &:hover {
+      background: darken($color2, 10);
+    }
+  }
+}
+:host-context(app-titles-b) {
+  a,
+  button {
+    background: $color1;
+    &:hover {
+      background: darken($color1, 10);
+    }
+  }
+}

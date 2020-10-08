@@ -13,12 +13,13 @@ import { OrdersService } from '../../services/orders.service';
 export class PageListOrdersComponent implements OnInit {
 
   public headers: string[];
-  // public collectionOrders: Order[];
   public collectionOrdersObservable: Observable<Order[]>;
   public states = Object.values(StateOrder);
   public btnRoute: BtnI;
   public btnHref: BtnI;
   public btnAction: BtnI;
+  public title: string;
+  public subtitle: string;
 
   constructor(
     private orderService: OrdersService
@@ -27,9 +28,8 @@ export class PageListOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.headers = ['Id', 'Type','Client', 'Nb jours', 'TJM HT', 'Total HT', 'Total TTC', 'Date','Etat'];
     this.initButtons();
-    // this.orderService.collection.subscribe(orders => {
-    //   this.collectionOrders = orders;
-    // });
+    this.title = 'Orders'
+    this.subtitle = 'List of order'
     this.collectionOrdersObservable = this.orderService.collection;
   }
 
