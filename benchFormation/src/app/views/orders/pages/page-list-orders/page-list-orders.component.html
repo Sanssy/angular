@@ -1,5 +1,8 @@
-<app-table-light *ngIf="collectionOrders" [headers]="headers">
-  <tr *ngFor="let c of collectionOrders">
+<app-table-light
+  *ngIf="collectionOrdersObservable | async as orders"
+  [headers]="headers"
+>
+  <tr *ngFor="let c of orders">
     <td>{{ c.id }}</td>
     <td>{{ c.typePresta }}</td>
     <td>{{ c.client }}</td>

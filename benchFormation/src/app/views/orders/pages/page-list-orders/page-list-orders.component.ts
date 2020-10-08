@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { BtnI } from 'src/app/shared/interfaces/btn-i';
 import { Order } from 'src/app/shared/models/order.model';
@@ -12,7 +13,8 @@ import { OrdersService } from '../../services/orders.service';
 export class PageListOrdersComponent implements OnInit {
 
   public headers: string[];
-  public collectionOrders: Order[];
+  // public collectionOrders: Order[];
+  public collectionOrdersObservable: Observable<Order[]>;
   public states = Object.values(StateOrder);
   public btnRoute: BtnI;
   public btnHref: BtnI;
@@ -25,10 +27,10 @@ export class PageListOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.headers = ['Id', 'Type','Client', 'Nb jours', 'TJM HT', 'Total HT', 'Total TTC', 'Date','Etat'];
     this.initButtons();
-    this.orderService.collection.subscribe(orders => {
-      this.collectionOrders = orders;
-    });
-    // this.orderService.getFilterByState(StateOrder.OPTION).subscribe(orders => this.collectionOrders = orders);
+    // this.orderService.collection.subscribe(orders => {
+    //   this.collectionOrders = orders;
+    // });
+    this.collectionOrdersObservable = this.orderService.collection;
   }
 
   public changeState(order: Order, event): void {
@@ -47,7 +49,6 @@ export class PageListOrdersComponent implements OnInit {
 
   public openPopup(): void {
     console.log('Open popup');
-
   }
 
 }
