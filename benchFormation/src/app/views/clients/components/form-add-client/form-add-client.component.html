@@ -9,7 +9,12 @@
         id="name"
       />
     </div>
-
+    <div
+      *ngIf="form.get('name').errors?.required && form.get('name').touched"
+      class="alert alert-danger"
+    >
+      min length is 5
+    </div>
     <div class="from-group">
       <label for="ca">CA</label>
       <input formControlName="ca" type="number" class="form-control" id="ca" />
@@ -24,7 +29,14 @@
         id="comment"
       ></textarea>
     </div>
-
+    <div
+      *ngIf="
+        form.get('comment').errors?.required && form.get('comment').touched
+      "
+      class="alert alert-danger"
+    >
+      please fill the input
+    </div>
     <div class="from-group">
       <label for="tva">TVA</label>
       <input
@@ -44,6 +56,8 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      Submit
+    </button>
   </form>
 </div>
