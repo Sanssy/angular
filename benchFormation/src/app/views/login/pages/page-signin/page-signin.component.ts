@@ -24,12 +24,10 @@ export class PageSigninComponent implements OnInit {
   constructor(private router: Router, private userservice: UserService) { }
 
   ngOnInit(): void {
-
     this.userservice.fetchUsers.subscribe(users => {
       this.admin = users.find(u => u.role === StateUser.ADMIN);
       this.usr = users.find(u => u.role === StateUser.USER);
     })
-
     this.initButtons();
   }
 
@@ -50,9 +48,9 @@ export class PageSigninComponent implements OnInit {
 
   signIn(username: string, password: string){
     this.userservice.getByUsernameAndPassword(username, password).subscribe(obj => {
-      console.log(obj[0].username);
       localStorage.username = obj[0].username;
-      localStorage.username = obj[0].role;
+      localStorage.role = obj[0].role;
+      localStorage.id = obj[0].id;
       localStorage.userConnected = true;
       this.router.navigate(['/home']);
     });
@@ -61,6 +59,8 @@ export class PageSigninComponent implements OnInit {
   signOut() {
     if (localStorage.userConnected){
       localStorage.userConnected = false;
+      localStorage.username = '';
+      localStorage.role = '';
     }
   }
 }

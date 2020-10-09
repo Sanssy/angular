@@ -1,0 +1,11 @@
+<app-titles-b *ngIf="authorized && route.data | async as fromRoute; else unauthorized" [title]="fromRoute.title" [subtitle]="fromRoute.subtitle" >
+  <app-form-add-user (clicked)="add($event)"></app-form-add-user>
+</app-titles-b>
+
+<ng-template class="container" #unauthorized>
+  <h1 class="text-alert warning">
+    <app-icon-warning></app-icon-warning>
+    Unauthorized Access
+    <app-icon-warning></app-icon-warning>
+  </h1>
+</ng-template>

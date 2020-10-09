@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IconI } from '../../interfaces/icon-i';
 
 @Component({
   selector: 'app-btn',
@@ -11,7 +12,8 @@ export class BtnComponent implements OnInit {
   @Input() route: string;
   @Input() href: string;
   @Input() icon: boolean;
-  @Input() action: boolean
+  @Input() action: boolean;
+  @Input() iconImage: IconI;
   @Output() clicked: EventEmitter<any> = new EventEmitter();
 
 

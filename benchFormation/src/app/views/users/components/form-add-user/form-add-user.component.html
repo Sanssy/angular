@@ -1,0 +1,27 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="from-group">
+      <label for="username">Username</label>
+      <input class="form-control" type="text" formControlName="username" id="username">
+    </div>
+
+    <div class="from-group">
+      <label for="password">Password</label>
+      <input class="form-control" type="password" formControlName="password" id="password">
+    </div>
+
+    <div class="from-group">
+      <label for="role">Role</label>
+      <select formControlName="role" class="form-control" id="role">
+        <option *ngFor="let r of roles" [ngValue]="r">
+          {{ r }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      Submit
+    </button>
+  </form>
+</div>

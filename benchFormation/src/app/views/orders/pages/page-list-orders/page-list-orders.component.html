@@ -1,4 +1,4 @@
-<app-titles-a [title]="title" [subtitle]="subtitle">
+<app-titles-a *ngIf="route.data | async as datas" [title]="datas.title" [subtitle]="datas.subtitle">
   <app-table-light
     *ngIf="collectionOrdersObservable | async as orders"
     [headers]="headers"

@@ -5,7 +5,7 @@ export class User implements UserI {
   id: number;
   username: string;
   password: string;
-  role: StateUser;
+  role = StateUser.USER;
 
   constructor(obj?: Partial<User>){
     if (obj) {

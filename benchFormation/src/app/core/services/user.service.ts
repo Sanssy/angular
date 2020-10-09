@@ -44,21 +44,25 @@ export class UserService {
   // User : get username & password
   public getByUsernameAndPassword(username: string, password: string): Observable<User> {
     return this.http.get<User>(`${this.urlApi}users?username=${username}&password=${password}`).pipe(
-      map(obj =>  new User(obj))
+      map(obj => new User(obj))
     )
   }
 
-  public getUsersByRole(user: User): Observable<User[]> {
-    console.log(user);
-
-    if (user.role === StateUser.USER) {
-      return this.http.get<User[]>(`${this.urlApi}users/${user.id}`).pipe(
-        map(users => users.map(u => new User(u)))
-      );
+  public getUsersByRole(role: StateUser): Observable<User[]> {
+    if (role === StateUser.USER) {
+      return this.http.get<User[]>(`${this.urlApi}users?role=${role}`).pipe(
+        map(users => users.map(u => new User(u))));
     } else {
       return this.fetchUsers;
     }
   }
 
+  public getById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.urlApi}users/${id}`).pipe(map(user => new User(user)))
+  }
+
+  public add(user: User): Observable<User> {
+    return this.http.post<User>(`${this.urlApi}users`, user);
+  }
 
 }
