@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, Router } from '@angular/router';
 import { ControlService } from './core/services/control.service';
 import { PageHomeComponent } from './views/home/page-home/page-home.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found/page-not-found.component';
@@ -16,7 +16,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    enableTracing: true, // default
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor(router: Router){
+    const replacer = (key, value) => typeof value === 'function' ? value.name : value ;
+    console.log('Routes', JSON.stringify(router.config, replacer, 1));
+
+  }
+}

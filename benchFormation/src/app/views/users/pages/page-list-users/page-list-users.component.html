@@ -1,3 +1,4 @@
+<app-titles-b *ngIf="route.data | async as fromRoute" [title]="fromRoute.title" [subtitle]="fromRoute.subtitle">
 <app-table-striped *ngIf="usersObservable | async as users" [headers]="headers">
   <tr *ngFor="let u of users">
     <td>{{ u.id }}</td>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 import { StateUser } from 'src/app/shared/enums/state-user.enum';
@@ -19,7 +20,10 @@ export class PageListUsersComponent implements OnInit {
   public btnHref: BtnI;
   public usersObservable: Observable<User[]>;
 
-  constructor(private userService: UserService ) { }
+  constructor(
+    private userService: UserService,
+    public route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.headers = ['Id', 'Username', 'Role'];

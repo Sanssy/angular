@@ -4,6 +4,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { User } from 'src/app/shared/models/user';
 import { Location } from '@angular/common';
 import { StateUser } from 'src/app/shared/enums/state-user.enum';
+import { BtnI } from 'src/app/shared/interfaces/btn-i';
 
 @Component({
   selector: 'app-page-add-user',
@@ -13,6 +14,7 @@ import { StateUser } from 'src/app/shared/enums/state-user.enum';
 export class PageAddUserComponent implements OnInit {
 
   public authorized: boolean;
+  public btnAction: BtnI;
 
   constructor(
     public route: ActivatedRoute,
@@ -22,6 +24,7 @@ export class PageAddUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.authorized = this.displayFormsControl();
+    this.initButton();
   }
 
   public add(user: User): void {
@@ -30,5 +33,13 @@ export class PageAddUserComponent implements OnInit {
 
   public displayFormsControl(): boolean {
     return localStorage.role === StateUser.ADMIN;
+  }
+
+  public initButton(): void {
+    this.btnAction = {label: 'Return', action: true}
+  }
+
+  onReturn(){
+    this.location.back();
   }
 }
