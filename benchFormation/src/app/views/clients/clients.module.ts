@@ -9,13 +9,15 @@ import { IconsModule } from 'src/app/icons/icons.module';
 import { FormAddClientComponent } from './components/form-add-client/form-add-client.component';
 import { PageAddClientComponent } from './pages/page-add-client/page-add-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageClientDetailsComponent } from './pages/page-client-details/page-client-details.component';
 
 
 @NgModule({
   declarations: [
     PageClientListComponent,
     FormAddClientComponent,
-    PageAddClientComponent
+    PageAddClientComponent,
+    PageClientDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -1,10 +1,9 @@
 import { IconI } from './icon-i';
 
 export interface BtnI {
-  label: string;
+  label?: string;
   route?: string;
   href?: string;
   action?: boolean;
-  icon?: boolean;
-  iconImage?: IconI;
+  icon?: IconI;
 }

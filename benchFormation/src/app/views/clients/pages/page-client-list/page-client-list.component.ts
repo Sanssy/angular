@@ -21,6 +21,9 @@ export class PageClientListComponent implements OnInit {
   public filtering: boolean;
   public title: string ;
   public subtitle: string ;
+  // public btnView: BtnI;
+  // public btnEdit: BtnI;
+  // public btnDelete: BtnI;
 
   constructor(private clientService : ClientsService) { }
 
@@ -29,7 +32,7 @@ export class PageClientListComponent implements OnInit {
     this.subtitle = 'List of clients';
     this.filtering = false;
     this.initButtons();
-    this.headers = ['Id', 'Name', 'CA', 'Comment', 'TVA', 'Total TTC','State'];
+    this.headers = ['Id', 'Name', 'CA', 'Comment', 'TVA', 'Total TTC','State', 'Actions'];
     this.initClients();
   }
 
@@ -39,7 +42,7 @@ export class PageClientListComponent implements OnInit {
 
   public initButtons(): void {
     this.btnRoute = { label: 'Add a client', route: 'add' };
-    this.btnIcon = { label: 'Filter', icon: true};
+    this.btnIcon = { icon: {name: 'Filter'}};
   }
 
   public initClients(): void {
@@ -54,4 +57,11 @@ export class PageClientListComponent implements OnInit {
     }
     this.filtering = !this.filtering
   }
+
+  public onSelect(id: number, action: string) {
+    this.clientService.delete(id).subscribe();
+    this.clientsCollectionObservable = this.clientService.fetchClients;
+    console.log(id, action);
+  }
+
 }

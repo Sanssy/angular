@@ -10,6 +10,7 @@ import { IconFilterComponent } from './icon-filter/icon-filter.component';
 import { IconAddComponent } from './icon-add/icon-add.component';
 import { IconTemplateComponent } from './icon-template/icon-template.component';
 import { IconWarningComponent } from './icon-warning/icon-warning.component';
+import { IconDeleteComponent } from './icon-delete/icon-delete.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { IconWarningComponent } from './icon-warning/icon-warning.component';
     IconFilterComponent,
     IconAddComponent,
     IconTemplateComponent,
-    IconWarningComponent
+    IconWarningComponent,
+    IconDeleteComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,9 @@ import { IconWarningComponent } from './icon-warning/icon-warning.component';
     IconSignoutComponent,
     IconFilterComponent,
     IconAddComponent,
-    IconWarningComponent
+    IconWarningComponent,
+    IconDeleteComponent,
+    IconTemplateComponent
   ]
 })
 export class IconsModule { }

@@ -19,8 +19,6 @@ export class PageListOrdersComponent implements OnInit {
   public btnRoute: BtnI;
   public btnHref: BtnI;
   public btnAction: BtnI;
-  // public title: string;
-  // public subtitle: string;
 
   constructor(
     private orderService: OrdersService,

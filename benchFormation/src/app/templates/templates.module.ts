@@ -8,11 +8,12 @@ import { TitlesAComponent } from './components/titles-a/titles-a.component';
 import { TitlesBComponent } from './components/titles-b/titles-b.component';
 import { TextsModule } from '../texts/texts.module';
 import { TitlesCComponent } from './components/titles-c/titles-c.component';
+import { DetailViewAComponent } from './components/detail-view-a/detail-view-a.component';
 
 
 
 @NgModule({
-  declarations: [TableLightComponent, TableDarkComponent, TableStripedComponent, TitlesAComponent, TitlesBComponent, TitlesCComponent],
+  declarations: [TableLightComponent, TableDarkComponent, TableStripedComponent, TitlesAComponent, TitlesBComponent, TitlesCComponent, DetailViewAComponent],
   imports: [
     CommonModule,
     SharedModule,

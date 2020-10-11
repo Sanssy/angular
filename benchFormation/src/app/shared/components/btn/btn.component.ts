@@ -11,9 +11,8 @@ export class BtnComponent implements OnInit {
   @Input() label: string;
   @Input() route: string;
   @Input() href: string;
-  @Input() icon: boolean;
+  @Input() icon: IconI;
   @Input() action: boolean;
-  @Input() iconImage: IconI;
   @Output() clicked: EventEmitter<any> = new EventEmitter();
 
 

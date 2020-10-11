@@ -17,15 +17,15 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    enableTracing: true, // default
+    // enableTracing: true, // default
     preloadingStrategy: PreloadAllModules
   })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  constructor(router: Router){
-    const replacer = (key, value) => typeof value === 'function' ? value.name : value ;
-    console.log('Routes', JSON.stringify(router.config, replacer, 1));
+  // constructor(router: Router){
+  //   const replacer = (key, value) => typeof value === 'function' ? value.name : value ;
+  //   console.log('Routes', JSON.stringify(router.config, replacer, 1));
 
-  }
+  // }
 }

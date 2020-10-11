@@ -21,14 +21,39 @@
           </option>
         </select>
       </td>
+      <td>
+        <app-btn [icon]="btnIcon.icon" [route]="c.id">
+            <app-icon-view></app-icon-view>
+        </app-btn>
+        <app-btn [icon]="btnIcon.icon" (clicked)="onSelect(c.id, 'edit')">
+          <app-icon-edit></app-icon-edit>
+      </app-btn>
+      <app-btn [icon]="btnIcon.icon" (clicked)="onSelect(c.id, 'delete')">
+        <app-icon-delete></app-icon-delete>
+      </app-btn>
+        <!-- <app-btn [iconEdit]="btnIcon2.iconEdit"></app-btn>
+        <app-btn [iconDelete]="btnIcon3.iconDelete"></app-btn> -->
+        <!-- <ng-container [ngTemplateOutlet]="btnIcon1.label"> -->
+          <!-- <app-icon-view></app-icon-view> -->
+        <!-- </ng-container> -->
+      </td>
     </tr>
   </app-table-dark>
 
   <app-btn
-    [label]="btnIcon.label"
     [icon]="btnIcon.icon"
     (clicked)="filter()"
-  ></app-btn>
+  >
+  <app-icon-filter></app-icon-filter> {{btnIcon.icon.name}}
+</app-btn>
 
   <app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
 </app-titles-c>
+
+<!-- <button>
+  <ng-template #Test3>
+    TEST
+  </ng-template>
+  <ng-content select="app-icon-view"></ng-content>
+  <ng-container *ngTemplateOutlet="iconView"></ng-container>
+</button> -->

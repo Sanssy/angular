@@ -59,4 +59,13 @@ export class ClientsService {
   public add(client: Client): Observable<Client> {
     return this.http.post<Client>(`${this.urlApi}clients`, client)
   }
+
+  public edit(client: Client): Observable<Client> {
+    return this.http.put<Client>(`${this.urlApi}clients/${client.id}`, client);
+  }
+
+  public delete(id: number): Observable<Client[]> {
+    this.http.delete<Client[]>(`${this.urlApi}clients/${id}`);
+    return this.pClients;
+  }
 }
